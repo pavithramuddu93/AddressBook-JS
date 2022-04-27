@@ -79,8 +79,25 @@ class AddressBook{
 }
 
 try {
-    let addressBook = new AddressBook("Deep","Maywade","Betul","Badora","Mdhya","450001","91 8392949492","abcdeep@gmail.com")
-    console.log(addressBook.toString());
+    let addressBookList = new Array();
+    const prompt = require('prompt-sync')();
+    const sizeOfBookStr = prompt('Enter Size Of Book: ');
+    const sizeOfBook = Number(sizeOfBookStr)
+    let i = 0;
+    while(i<sizeOfBook){
+        firstName = prompt("Enter First Name: ");
+        lastName = prompt("Enter Last Name: ");
+        address = prompt("Enter Address: ");
+        city = prompt("Enter City: ");
+        state = prompt("Enter State: ");
+        zip = prompt("Enter Zip: ");
+        phoneNum = prompt("Enter Phone Number: ");
+        email = prompt("Enter Email Address: ");
+        let addressBook = new AddressBook(firstName,lastName,address,city,state,zip,phoneNum,email);
+        addressBookList.push(addressBook.toString());
+        i++;
+    }
+    console.log(addressBookList);
 } catch (e) {
     console.error(e)
 }
